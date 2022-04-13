@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    network_mode: host
+  spring:
+    image: sd-task-s8-hw4
+    build: .
+    network_mode: host
+    depends_on:
+      - mongo
